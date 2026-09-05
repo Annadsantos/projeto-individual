@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/css/style.css">
+    <title>No, I'm Not a Human - Triagem</title>
+</head>
+
+<body>
+
+    <header class="header-human">
+        <img class="logo-imagem" src="/frontend/imagens/logo.png" alt="Logo de Identificação">
+
+        <div class="status">
+            <span class="rec"></span>
+            REC
+        </div>
+    </header>
+
+    <main class="container-pai">
+        <img class="imagem-anomalia" src="/frontend/imagens/anomalia.png" alt="Visualização da Anomalia">
+
+        <section class="container-dialogo">
+            <form id="form-cadastro" onsubmit="return validarFormulario(event)" novalidate>
+
+                <div class="campo-grupo">
+                    <label for="nome">Me fale o seu nome...</label>
+                    <input type="text" id="nome" name="nome" autocomplete="off">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="idade">Qual a sua idade?</label>
+                    <input type="number" id="idade" name="idade" min="0" max="120">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="nascimento">Qual a sua data de nascimento?</label>
+                    <input type="date" id="nascimento" name="nascimento">
+                </div>
+
+                <div class="campo-grupo">
+                    <p class="pergunta-titulo">Você sente dor?</p>
+                    <div class="opcoes opcoes-radio">
+                        <label class="opcao-item">
+                            <input type="radio" name="sente_dor" value="sim">
+                            <span>Sim</span>
+                        </label>
+                        <label class="opcao-item">
+                            <input type="radio" name="sente_dor" value="nao">
+                            <span>Não</span>
+                        </label>
+                        <label class="opcao-item">
+                            <input type="radio" name="sente_dor" value="as_vezes">
+                            <span>Às vezes</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <p class="pergunta-titulo">Marque os sintomas que você já apresentou</p>
+                    <div class="opcoes opcoes-checkbox">
+                        <label class="opcao-item">
+                            <input type="checkbox" name="sintomas" value="perda_memoria">
+                            <span>Perda de memória recente</span>
+                        </label>
+                        <label class="opcao-item">
+                            <input type="checkbox" name="sintomas" value="sensibilidade_luz">
+                            <span>Sensibilidade à luz</span>
+                        </label>
+                        <label class="opcao-item">
+                            <input type="checkbox" name="sintomas" value="mudanca_comportamento">
+                            <span>Mudança de comportamento repentina</span>
+                        </label>
+                        <label class="opcao-item">
+                            <input type="checkbox" name="sintomas" value="marcas_inexplicaveis">
+                            <span>Marcas ou cicatrizes inexplicáveis</span>
+                        </label>
+                        <label class="opcao-item">
+                            <input type="checkbox" name="sintomas" value="nenhum">
+                            <span>Nenhum dos anteriores</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="select-pais">Selecione seu país de origem</label>
+                    <select name="pais" id="select-pais" class="select-input">
+                        <option value="" disabled selected>Carregando dados...</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-human">RESPONDER</button>
+
+            </form>
+        </section>
+    </main>
+    <script src="validacao.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
