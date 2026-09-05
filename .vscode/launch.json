@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NinahApplication<ninah>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.individual.ninah.NinahApplication",
+            "projectName": "ninah",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
