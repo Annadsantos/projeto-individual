@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'VCR OSD Mono';
+    src: url('/frontend/fonte/VCR_OSD_MONO_1.001.ttf') format('truetype');
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'VCR OSD Mono', monospace;
+    font-size: 14px;
+    color: #6ef6bb;
+    background-color: #000;
+    background-image: url('/frontend/imagens/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.header-human {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background-color: rgba(8, 9, 9, 0.85);
+    z-index: 10;
+}
+
+.header-human::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(255, 255, 255, 0.025) 4px
+    );
+    pointer-events: none;
+}
+
+.logo-imagem {
+    position: relative;
+    z-index: 2;
+    width: 50px;
+    height: auto;
+    filter: brightness(0.85) contrast(1.2);
+}
+
+    .status {
+        position: relative;
+        z-index: 2;
+        font-size: 13px;
+        letter-spacing: 3px;
+        color: #6ef6bb;
+        text-shadow:
+            0 0 4px rgba(111, 227, 204, 0.9),
+            0 0 10px rgba(10, 129, 60, 0.7);
+    }
+
+.rec {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    background: #ff2020;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff2020;
+    animation: blink 1.2s infinite;
+}
+
+.container-pai {
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.imagem-anomalia {
+    position: absolute;
+    left: 15%;
+    bottom: -100px;
+    height: 120%;
+    width: auto;
+    max-width: 50vw;
+    object-fit: contain;
+    object-position: bottom;
+    z-index: 1;
+}
+
+.container-dialogo {
+    position: relative;
+    z-index: 2;
+    width: 450px;
+    right: 80px;
+    max-height: calc(100vh - 70px);
+    background-color: #000000;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+}
+
+.container-dialogo::-webkit-scrollbar {
+    width: 0px;
+}
+
+.campo-grupo {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+label, .pergunta-titulo {
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #6ef6bb;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+.select-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #1c3d2b;
+    color: #ffffff;
+    font-family: 'VCR OSD Mono', monospace;
+    font-size: 14px;
+    padding: 4px 0;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+.select-input:focus {
+    border-bottom-color: #6ef6bb;
+}
+
+/* Opções (Radio / Checkbox) */
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+.opcao-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #6ef6bb;
+}
+
+.opcao-item input[type="radio"],
+.opcao-item input[type="checkbox"] {
+    accent-color: #6ef6bb;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.btn-human {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #0a2115;
+    color: #6ef6bb;
+    font-family: 'VCR OSD Mono', monospace;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-human:hover {
+    background-color: #6ef6bb;
+    color: #000000;
+}
+
+@keyframes blink {
+    0%, 40% { opacity: 1; }
+    41%, 100% { opacity: 0.2; }
+}
+
+@media (max-width: 1024px) {
+    .container-pai {
+        padding: 0 20px;
+    }
+
+    .imagem-anomalia {
+        left: 5%;
+        height: 100%;
+        bottom: -40px;
+    }
+
+    .container-dialogo {
+        width: 380px;
+    }
+}
+
+@media (max-height: 700px) {
+    .imagem-anomalia {
+        height: 95%;
+        bottom: -20px;
+    }
+
+    .container-dialogo {
+        max-height: calc(100vh - 80px);
+        padding: 15px;
+    }
+
+    .campo-grupo {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .container-pai {
+        position: relative;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px 15px;
+    }
+
+    .imagem-anomalia {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        height: 300px;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container-dialogo {
+        width: 100%;
+        max-width: 450px;
+        max-height: none;
+    }
+}
