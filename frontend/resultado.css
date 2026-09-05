@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'VCR OSD Mono';
+    src: url('/frontend/fonte/VCR_OSD_MONO_1.001.ttf') format('truetype');
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'VCR OSD Mono', monospace;
+    font-size: 14px;
+    color: #6ef6bb;
+    background-color: #000;
+    background-image: url('/frontend/imagens/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.header-human {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background-color: rgba(8, 9, 9, 0.85);
+    z-index: 10;
+}
+
+.header-human::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(to bottom,
+            transparent 0px,
+            transparent 3px,
+            rgba(255, 255, 255, 0.025) 4px);
+    pointer-events: none;
+}
+
+.logo-imagem {
+    position: relative;
+    z-index: 2;
+    width: 50px;
+    height: auto;
+    filter: brightness(0.85) contrast(1.2);
+}
+
+.status {
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #6ef6bb;
+    text-shadow: 0 0 4px rgba(111, 227, 204, 0.9);
+}
+
+.rec {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    background: #ff2020;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff2020;
+    animation: blink 1.2s infinite;
+}
+
+.container-pai {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.container-dialogo {
+    position: relative;
+    z-index: 2;
+    width: 580px;
+    max-height: calc(100vh - 80px);
+    background-color: #000000;
+    padding: 35px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 22px;
+}
+
+.titulo-painel {
+    font-size: 18px;
+    color: #6ef6bb;
+    border-bottom: 1px solid #1c3d2b;
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.btn-human {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #0a2115;
+    color: #6ef6bb;
+    font-family: 'VCR OSD Mono', monospace;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-human:hover {
+    background-color: #6ef6bb;
+    color: #000000;
+}
+
+@keyframes blink {
+
+    0%,
+    40% {
+        opacity: 1;
+    }
+
+    41%,
+    100% {
+        opacity: 0.2;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container-scanner {
+        left: 5%;
+        height: 100%;
+        bottom: -40px;
+    }
+
+    .container-dialogo {
+        width: 380px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-y: auto;
+        height: auto;
+    }
+
+    .container-pai {
+        position: relative;
+        height: auto;
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+
+    .container-scanner {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        height: 300px;
+    }
+
+    .container-dialogo {
+        width: 100%;
+        max-width: 450px;
+    }
+}
